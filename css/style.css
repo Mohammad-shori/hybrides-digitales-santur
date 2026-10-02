@@ -1,0 +1,183 @@
+* { 
+    box-sizing: border-box; 
+}
+
+body {
+    position: relative;
+    background-color: #0b0b0e;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    overflow-x: hidden;
+}
+
+/* Unscharfer Hintergrundeffekt */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('../img/background.jpg') no-repeat center center / cover;
+    filter: blur(8px) brightness(0.4);
+    transform: scale(1.05);
+    z-index: -1;
+}
+
+/* Status- und Anleitungsbox */
+.instructions {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    padding: 8px 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #f9e2af;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Santur-Instrumentenbereich (Optimal für Laptop & PC) */
+.santur-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 880 / 350; 
+    background: url('../img/santur.png') no-repeat center center;
+    background-size: contain;
+    border-radius: 12px;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.8));
+    touch-action: none; 
+}
+
+/* Visuelle Anzeige der schwingenden Saiten */
+.string-line {
+    position: absolute;
+    height: 7px;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.04s ease, box-shadow 0.04s ease;
+    pointer-events: none;
+}
+
+/* Transparente Interaktionsbereiche für Touch & Klick */
+.touch-zone {
+    position: absolute;
+    height: 8%;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 4px;
+}
+
+/* Leuchteffekte für aktive Saiten */
+.string-line.active-white {
+    opacity: 0.95;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px #ffffff, 0 0 15px #ffffff;
+}
+
+.string-line.active-yellow {
+    opacity: 0.95;
+    background-color: #ffd700;
+    box-shadow: 0 0 8px #ffd700, 0 0 15px #ffaa00;
+}
+
+/* Noten-Anzeigebereich (Info Panel & SVG Notation) */
+.note-display-box {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 580px;
+    padding: 12px 20px;
+    background: rgba(15, 15, 20, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 48%;
+}
+
+.note-letter {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.note-solfege {
+    font-size: 1rem;
+    color: #cdd6f4;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.note-details {
+    font-size: 0.8rem;
+    color: #a6adc8;
+    margin-top: 6px;
+}
+
+.staff-svg-box {
+    width: 48%;
+    max-width: 240px;
+    height: 120px; 
+    background: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.staff-svg-box svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    body {
+        padding: 5px;
+        justify-content: center;
+    }
+
+    .instructions {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+        margin-bottom: 5px;
+    }
+
+    .santur-container {
+        max-height: 58vh;
+    }
+
+    .note-display-box {
+        margin-top: 5px;
+        padding: 6px 12px;
+        max-width: 480px;
+    }
+
+    .note-letter { font-size: 1.5rem; }
+    .note-solfege { font-size: 0.85rem; }
+    .note-details { font-size: 0.65rem; }
+    .staff-svg-box { height: 65px; }
+}
