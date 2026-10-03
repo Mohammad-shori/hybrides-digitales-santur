@@ -28,7 +28,7 @@ Projekt im Rahmen der Lehrveranstaltung *Musikinformatik* (Master)
 12. [Ausblick](#12-ausblick)
 13. [Verwendete Technologien](#13-verwendete-technologien)
 14. [Hinweis zu Hilfsmitteln](#14-hinweis-zu-hilfsmitteln)
-15. [Bildnachweise](#15-bildnachweise)
+15. [Bild- und Audionachweise](#15-bild--und-audionachweise)
 
 ---
 
@@ -385,9 +385,11 @@ Bei der Entwicklung wurden KI-Assistenzsysteme (Gemini, Claude) als Unterstützu
 
 ---
 
-## 15. Bildnachweise
+## 15. Bild- und Audionachweise
 
 - Hintergrundbild: Pinterest Pin von **TAHA** ([Link zur Quelle](https://de.pinterest.com/pin/785807834969737808/))
 - Audio-Samples (`audio/w1–w9.mp3`, `audio/y1–y9.mp3`):** Eigene Aufnahmen der Autor:innen.
+
+
 
 
